@@ -1,16 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HTML5 Boilerplate</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashley Medina House Warming Party</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2em;
+            text-align: center;
+            color: #007BFF;
+        }
+
+        p {
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        #demo {
+            font-size: 2em;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Countdown Timer Styles */
+        .countdown-container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .countdown-item {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
 </head>
-
 <body>
-  <h1>Page Title</h1>
-  <script src="scripts.js"></script>
-</body>
 
+<div class="countdown-container">
+    <h1>Ashley Medina House Warming Party</h1>
+    <p>My first paragraph.</p>
+    <!-- Countdown Timer Element -->
+    <div id="demo"></div>
+</div>
+
+<script>
+// Countdown Timer Script
+var countDownDate = new Date("Aug 18, 2024 15:00:00").getTime();
+var x = setInterval(function() {
+    var now = new Date().getTime();
+    var distance = countDownDate - now;
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+}, 1000);
+</script>
+
+</body>
 </html>
